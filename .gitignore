@@ -1,16 +1,14 @@
+work
+<<<<<<< HEAD
+*.bak
+*.mpf
+*.mti
+=======
 transcript
 *.bak
 work
-ca4.mpf
-ca4.cr.mti
 *.mpf
-*.cr
 *.cr.mti
-*.mti
-ca4.mpf
-ca4.cr.mti
-CA4.cr.mti
-CA4.mpf
 *.v.bak
 *.wlf
 *.mpf
@@ -26,3 +24,10 @@ wlft79kw0h
 
 vsim.wlf
 *.~vsdx
+>>>>>>> 06403db2ae6d81268d763b4662ab7204a18198dc
+*.bak
+32bregen.sv.bak
+CA4.cr.mti
+CA4.cr.mti
+*.cr.mti
+*.mti
