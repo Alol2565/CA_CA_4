@@ -7,7 +7,7 @@
 //MEM Control Signal : MemRead | MemWrite | PCSrc[1:0] | 4 bits ------------> memcntrlsig[3:0]
 //WB  Control Signal : RegWrite | MemToReg | 2 bits --------> wbcntrlsig[1:0]
 
-module IDEXreg(input [31:0] read_data_in
+module EXMEMreg(input [31:0] read_data_in
                 ,input [4:0] inst2_in
                 ,input [31:0] result_in
                 ,input [3:0] memcntrlsig_in
