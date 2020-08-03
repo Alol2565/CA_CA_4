@@ -7,9 +7,11 @@ module hazardUnit (
   
   always@(*)begin
     if(ID_EX_memread & (ID_EX_rt != 5'b0) & (
-      ( (ID_EX_rt == Rs)&(~jmp) ) |
-      ( (ID_EX_rt == Rt)&(dst|beq|bne|memwrite) )     
-    ))begin
+      ( (ID_EX_rt == Rs)
+      & (~jmp) ) |
+      ( (ID_EX_rt == Rt)
+      & (dst|beq|bne|memwrite) )     
+    )) begin
       IF_ID_write = 1'b0;
       pc_write = 1'b0;
       control = 1'b0;
