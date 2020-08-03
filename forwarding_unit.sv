@@ -7,14 +7,13 @@ module forwardingUnit (output reg [1:0] forward_A, forward_B,
             , ID_EX_Rt  
             , MEM_WB_Rd );
   
-  always@(ID_EX_Rs, EX_MEM_Rd, MEM_WB_Rd, EX_MEM_regwrite, MEM_WB_RegWrite)   
-  begin
-    if(EX_MEM_regwrite & (EX_MEM_Rd == ID_EX_Rs) & (EX_MEM_Rd != 5'b0)) forward_A = 2'b10;
-    else if(MEM_WB_RegWrite & (MEM_WB_Rd==ID_EX_Rs) & (MEM_WB_Rd != 5'b0)) forward_A = 2'b01;
+  always@(ID_EX_Rs, EX_MEM_Rd, MEM_WB_Rd, EX_MEM_regwrite, MEM_WB_RegWrite) begin
+    if(EX_MEM_regwrite & (EX_MEM_Rd == ID_EX_Rs) & (EX_MEM_Rd != 5'b0)) forward_A = 2'b10; // 1/2 A
+    else if(MEM_WB_RegWrite & (MEM_WB_Rd==ID_EX_Rs) & (MEM_WB_Rd != 5'b0)) forward_A = 2'b01; // 1/3 A
     else forward_A = 2'b0;
   end
 
-  always@(ID_EX_Rt, EX_MEM_Rd, MEM_WB_Rd, EX_MEM_regwrite, MEM_WB_RegWrite)begin
+  always@(ID_EX_Rt, EX_MEM_Rd, MEM_WB_Rd, EX_MEM_regwrite, MEM_WB_RegWrite)  begin
     if(EX_MEM_regwrite & (EX_MEM_Rd == ID_EX_Rt) & (EX_MEM_Rd!=5'd0)) forward_B = 2'b10;
     else if(MEM_WB_RegWrite & (MEM_WB_Rd== ID_EX_Rt) & (MEM_WB_Rd!=5'd0)) forward_B = 2'b01;
     else forward_B = 2'b0;
