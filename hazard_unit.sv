@@ -11,13 +11,13 @@ module hazardUnit (
       ( (ID_EX_rt == rt)&(dst|beq|bne|memwrite) )     
     ))begin
       awrite = 1'b0;
-      PCwrite = 1'b0;
+      pc_write = 1'b0;
       control = 1'b0;
     end
     else begin
-    awrite = 1'b1;
-    PCwrite = 1'b1;
-    control = 1'b1;
+      awrite = 1'b1;
+      pc_write = 1'b1;
+      control = 1'b1;
     end
   end
 endmodule
